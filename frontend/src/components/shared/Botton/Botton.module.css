@@ -1,0 +1,22 @@
+.button{
+    background: #0077ff;
+    padding: 10px 20px;
+    border: none;
+    outline: nome;
+    display: flex;
+    align-items: centre;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+}
+.button:hover{
+    background: #014a9c;
+}
+.image{
+    margin: auto;
+    margin-left: 10px;
+}
