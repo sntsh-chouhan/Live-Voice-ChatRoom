@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Botton.module.css';
+import style from './Button.module.css';
 
 const Botton = ({writeup, image, onClick,}) => {
   return (
