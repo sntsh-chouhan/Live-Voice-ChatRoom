@@ -8,7 +8,7 @@ const steps={
 };
 
 const Authenticate = () => {
-    const [step, setStep]=useState(2);
+    const [step, setStep]=useState(1);
     const Step=steps[step];
 
     function onNext(){

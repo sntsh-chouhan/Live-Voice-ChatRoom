@@ -6,7 +6,7 @@ class UserService{
         return user;
     }
 
-    async createUser(filter){
+    async createUser(data){
         const user = await UserModel.create(data);
         return user;
     }

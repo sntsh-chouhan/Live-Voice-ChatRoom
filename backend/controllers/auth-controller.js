@@ -2,7 +2,7 @@ const otpService = require('../services/otp-service');
 const hashService = require('../services/hash-service');
 const userService = require('../services/user-service');
 const tokenService = require('../services/token-service');
-
+const UserDto = require('../dtos/user-dto');
 
 class AuthController{
     async sendOtp(req, res){
@@ -62,10 +62,11 @@ class AuthController{
         try{
             user = await userService.findUser({phone});
             if(!user){
-                user = await userService.createUser({phone})
+                user = await userService.createUser({phone}) 
             }
         }catch(err){
             console.log(err);
+            console.log("dataabse err");
             res.status(500).json({message: 'Database err'})
         }
         
@@ -76,8 +77,8 @@ class AuthController{
             maxAge: 1000*60*24*30,
             httpOnly: true
         });
-
-        res.json({accessToken});
+        const userDto  = new UserDto(user);
+        res.json({accessToken, user: userDto});
     }
 }
 
