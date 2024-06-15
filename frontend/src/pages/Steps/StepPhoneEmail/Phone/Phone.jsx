@@ -14,6 +14,7 @@ const Phone = ({onNext}) => {
     async function submit(){
         const {data} = await sendOtp({phone: phoneNumber});
         console.log(data);
+        alert(`${data.otp} this is opt, sms service is expensive` );
         dispatch(setOtp({phone: data.phone, hash : data.hash}));
         onNext();
     }
