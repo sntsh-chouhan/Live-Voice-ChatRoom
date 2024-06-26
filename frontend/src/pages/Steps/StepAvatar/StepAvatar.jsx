@@ -33,21 +33,6 @@ const StepAvatar = ({ onNext }) => {
         } catch (err) {
             console.log("erroe is here ")
             console.log(err);
-
-            // if (err.response) {
-            //     // The request was made and the server responded with a status code
-            //     // that falls out of the range of 2xx
-            //     console.error("Server responded with an error:", err.response.data);
-            //     console.error("Status code:", err.response.status);
-            //     console.error("Headers:", err.response.headers);
-            // } else if (err.request) {
-            //     // The request was made but no response was received
-            //     console.error("No response received:", err.request);
-            // } else {
-            //     // Something happened in setting up the request that triggered an Error
-            //     console.error("Error setting up the request:", err.message);
-            // }
-            // console.error("Axios error config:", err.config);
         }
     }
     return (

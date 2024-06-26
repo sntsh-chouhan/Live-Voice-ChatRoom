@@ -5,12 +5,12 @@ module.exports = async function (req, res, next) {
     // console.log(req.cookies);
     try {
         // console.log("token tryingg")
-        const { accesstoken } = req.cookies;
-        if (!accesstoken) {
+        const { accessToken } = req.cookies;
+        if (!accessToken) {
             // console.log("no access token")
             throw new Error();
         }
-        const userData = await tokenService.verifyAccessToken(accesstoken);
+        const userData = await tokenService.verifyAccessToken(accessToken);
         if (!userData) {
             // console.log("here?");
             throw new Error();
