@@ -14,7 +14,7 @@ const Home = () => {
     const history =useHistory();
     function startRegister(){
         history.push('/authenticate');
-        console.log('hudsub');
+        // console.log('hudsub');
     }
     return (
         <div className={styles.cardWrapper}>
