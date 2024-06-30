@@ -24,14 +24,14 @@ const StepAvatar = ({ onNext }) => {
         try {
             
             const { data } = await activate({name, avatar});
-            console.log("error at submiting")
+            // console.log("error at submiting")
             if (data.auth) {
                 dispatch(setAuth(data));
             }
-            console.log(data);
-            console.log("submiting");
+            // console.log(data);
+            // console.log("submiting");
         } catch (err) {
-            console.log("erroe is here ")
+            // console.log("erroe is here ")
             console.log(err);
         }
     }

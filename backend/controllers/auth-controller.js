@@ -154,6 +154,18 @@ class AuthController{
         
     }
 
+    async logout(req, res){
+        // deleting refresh token from db and cookie
+        const {refreshToken} = req.cookies;
+        await tokenService.removeToken(refreshToken);
+
+        res.clearCookie('refreshToken');
+        res.clearCookie('accessToken');
+
+        res.json({user: null, auth: false});
+        
+    }
+
 }
 
 
