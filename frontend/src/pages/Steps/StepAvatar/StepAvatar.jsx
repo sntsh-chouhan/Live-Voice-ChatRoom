@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../../../components/shared/Card/Card';
 import Button from '../../../components/shared/Button/Button';
 import styles from './StepAvatar.module.css';
@@ -11,6 +11,8 @@ const StepAvatar = ({ onNext }) => {
     const dispatch = useDispatch();
     const {name, avatar} = useSelector((state) => state.activate);
     const [image, setImage] = useState('/images/monkey-avatar.png');
+    const [unMounted, setUnMounted] = useState(false);
+
     function captureImage(e) {
         const file = e.target.files[0];
         const reader = new FileReader();
@@ -28,17 +30,21 @@ const StepAvatar = ({ onNext }) => {
         try {
             
             const { data } = await activate({name, avatar});
-            // console.log("error at submiting")
             if (data.auth) {
-                dispatch(setAuth(data));
+                if(!unMounted){
+                    dispatch(setAuth(data));
+                }
             }
-            // console.log(data);
-            // console.log("submiting");
         } catch (err) {
-            // console.log("erroe is here ")
             console.log(err);
         }
     }
+
+    // useEffect(()=>{
+    //     return () =>{
+    //         setUnMounted(true);
+    //     };
+    // }, []);
     return (
         <>
             <Card title={`Okay, ${name}`} icon="monkey-emoji">
