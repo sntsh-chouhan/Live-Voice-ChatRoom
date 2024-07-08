@@ -3,7 +3,16 @@ import styles from './TextInput.module.css';
 
 const TextInput = (props) => {
   return (
-    <input className={styles.input} type="text" {...props} />
+    <div>
+        <input
+                className={styles.input}
+                style={{
+                    width: props.fullwidth === 'true' ? '100%' : 'inherit',
+                }}
+                type="text"
+                {...props}
+            />
+    </div>
   );
 };
 
