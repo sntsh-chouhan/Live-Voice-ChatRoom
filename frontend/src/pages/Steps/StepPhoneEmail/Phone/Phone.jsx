@@ -12,6 +12,10 @@ const Phone = ({onNext}) => {
     const dispatch = useDispatch();
 
     async function submit(){
+        if(!phoneNumber){
+            alert("please fill in the mobile no.");
+            return;
+        }
         const {data} = await sendOtp({phone: phoneNumber});
         console.log(data);
         alert(`${data.otp} this is opt, sms service is expensive` );
