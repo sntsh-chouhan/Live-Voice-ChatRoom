@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import Card from '../../../components/shared/Card/Card';
 import Button from '../../../components/shared/Button/Button';
 import styles from './StepAvatar.module.css';
@@ -6,12 +6,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setAvatar } from '../../../store/activateSlice';
 import { activate } from '../../../http';
 import { setAuth } from '../../../store/authSlice';
+// import { useEffect } from 'react';
 
 const StepAvatar = ({ onNext }) => {
     const dispatch = useDispatch();
     const {name, avatar} = useSelector((state) => state.activate);
     const [image, setImage] = useState('/images/monkey-avatar.png');
-    const [unMounted, setUnMounted] = useState(false);
+    // const [unMounted, setUnMounted] = useState(false);
 
     function captureImage(e) {
         const file = e.target.files[0];
@@ -31,9 +32,10 @@ const StepAvatar = ({ onNext }) => {
             
             const { data } = await activate({name, avatar});
             if (data.auth) {
-                if(!unMounted){
-                    dispatch(setAuth(data));
-                }
+                // if(!unMounted){
+
+                // }
+                dispatch(setAuth(data));
             }
         } catch (err) {
             console.log(err);

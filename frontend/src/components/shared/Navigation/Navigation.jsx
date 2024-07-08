@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { logout } from '../../../http';
 import { setAuth } from '../../../store/authSlice';
 import styles from './Navigation.module.css';
-
 const Navigation = () => {
     const brandStyle = {
         color: '#fff',
@@ -20,7 +19,7 @@ const Navigation = () => {
     };
 
     const dispatch = useDispatch();
-    const {isAuth} = useSelector((state) =>state.auth);
+    const {isAuth, user} = useSelector((state) =>state.auth);
 
     async function logoutUser(){
         try {
@@ -38,7 +37,15 @@ const Navigation = () => {
             <img src="/images/logo.png" alt="logo" />
             <span style={logotext}>CodersHouse</span>
         </Link>
-        {isAuth && <button onClick={logoutUser}>Logout</button>}
+        {isAuth && 
+            <div className={styles.navRight}>
+                <h3>{user.name}</h3>
+                <Link to="/">
+                    <img className={styles.avatar} src= {user.avatar} width="40" height="40" alt="avatar" />
+                </Link>
+                <button onClick={logoutUser} className={styles.logoutButton}><img src="/images/logout.png" alt="logout" /></button>
+            </div>
+        }
     </nav>
   )
 }

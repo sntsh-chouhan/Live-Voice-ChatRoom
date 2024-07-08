@@ -21,6 +21,10 @@ html {
     max-width: 100%;
     height: auto;
   }
+  button{
+    border: none;
+    outline: none;
+  }
 
   body{
     background: #121212;
