@@ -6,6 +6,7 @@ import Activate from './pages/Activate/Activate';
 import Authenticate from './pages/Authenticate/Authenticate';
 import Home from './pages/Home/Home';
 import Rooms from './pages/Rooms/Rooms';
+import Room from './pages/Room/Room';
 import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
             </SemiProtectedRoute>
             <ProtectedRoute path='/rooms'>
                 <Rooms />
+            </ProtectedRoute>
+            <ProtectedRoute path="/room/:id">
+                    <Room />
             </ProtectedRoute>
         </Switch>
         </BrowserRouter>
